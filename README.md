@@ -4,7 +4,7 @@
 
 Application that lets the user search the Hacker News Algolia API and displays a list of results.
 
-[Live Demo](https://pip.pypa.io/en/stable/)
+[Live Demo](https://hn-react-redux.herokuapp.com/)
 
 ## Installation
 
