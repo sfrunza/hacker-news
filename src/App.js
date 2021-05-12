@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import * as actionCreators from "./redux/stories/actions";
 
-function App() {
+import Stories from "./components/Stories";
+import SearchBar from "./components/SearchBar";
+import Pagination from "./components/Pagination";
+
+const API = "https://hn.algolia.com/api/v1/search?";
+
+const App = (props) => {
+  const { hits, nbPages, page, query } = props.data;
+  const fetchData = props.fetchData;
+  const handleSearch = props.handleSearch;
+  const handlePage = props.handlePage;
+
+  useEffect(() => {
+    fetchData(`${API}page=${page}&hitsPerPage=30&query=${query}`);
+  }, [query, page, fetchData]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <SearchBar handleSearch={handleSearch} query={query} />
+      <Stories hits={hits} />
+      <Pagination page={page} nbPages={nbPages} handlePage={handlePage} />
     </div>
   );
-}
+};
 
-export default App;
+const mapStateToProps = (state) => {
+  return state;
+};
+
+export default connect(mapStateToProps, actionCreators)(App);

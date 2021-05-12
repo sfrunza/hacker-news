@@ -1,13 +1,61 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.App {
+  max-width: 1500px;
+  margin: auto;
+  background-color: #eeeeee47;
+}
+.search-bar {
+  background-color: lavender;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+.input-container {
+  flex-grow: 1;
+  margin-left: 10px;
+}
+.input {
+  width: -webkit-fill-available;
+  padding: 10px;
+  border: none;
+}
+.input:focus-visible {
+  outline: none;
+}
+.span {
+  font-size: 12px;
+  padding: 2px;
+  color: grey;
+}
+.result {
+  padding: 8px;
+}
+.url a {
+  padding: 2px;
+  color: grey;
+  font-size: 14px;
+  text-decoration: none;
+}
+.url a:hover {
+  text-decoration: underline;
+}
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 150px;
+  margin: auto;
 }
